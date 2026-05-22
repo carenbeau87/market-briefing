@@ -7,111 +7,131 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0e0f11;
-    --surface: #16181c;
-    --surface2: #1e2126;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.13);
-    --text: #f0f0f0;
-    --text2: #8a8f9e;
-    --text3: #555a68;
-    --accent: #5b9cf6;
-    --vaccine: #34d399;
-    --vaccine-dim: rgba(52,211,153,0.1);
-    --goods: #fb923c;
-    --goods-dim: rgba(251,146,60,0.1);
-    --media: #a78bfa;
-    --media-dim: rgba(167,139,250,0.1);
-    --tag-comp: #f472b6;
-    --tag-trend: #5b9cf6;
-    --tag-timely: #34d399;
-    --tag-feature: #fb923c;
-    --mono: 'DM Mono', monospace;
-    --sans: 'Noto Sans KR', sans-serif;
+    --bg:#0e0f11;--surface:#16181c;--surface2:#1e2126;
+    --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+    --text:#f0f0f0;--text2:#8a8f9e;--text3:#555a68;
+    --accent:#5b9cf6;
+    --vaccine:#34d399;--vaccine-dim:rgba(52,211,153,0.1);
+    --goods:#fb923c;--goods-dim:rgba(251,146,60,0.1);
+    --media:#a78bfa;--media-dim:rgba(167,139,250,0.1);
+    --tag-comp:#f472b6;--tag-trend:#5b9cf6;--tag-timely:#34d399;--tag-feature:#fb923c;
+    --mono:'DM Mono',monospace;--sans:'Noto Sans KR',sans-serif;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: var(--sans); min-height: 100vh; }
-  .app { display: grid; grid-template-rows: auto 1fr; min-height: 100vh; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;}
 
-  .topbar {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 28px; border-bottom: 1px solid var(--border);
-    background: var(--surface); position: sticky; top: 0; z-index: 100;
-  }
-  .logo { display: flex; align-items: center; gap: 10px; }
-  .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-  .logo-text { font-size: 14px; font-weight: 700; letter-spacing: .06em; }
-  .logo-sub { font-size: 11px; color: var(--text2); font-family: var(--mono); }
-  .topbar-right { display: flex; align-items: center; gap: 12px; }
-  .time-badge { font-family: var(--mono); font-size: 12px; color: var(--text2); background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; }
-  .run-btn { display: flex; align-items: center; gap: 7px; background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: 8px 18px; font-size: 13px; font-weight: 500; font-family: var(--sans); cursor: pointer; transition: opacity .15s, transform .1s; }
-  .run-btn:hover { opacity: .88; }
-  .run-btn:active { transform: scale(.97); }
-  .run-btn:disabled { opacity: .4; cursor: not-allowed; }
-  .run-btn svg { width:15px; height:15px; }
+  /* topbar */
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:0;z-index:100;}
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  .logo-text{font-size:14px;font-weight:700;letter-spacing:.06em;}
+  .logo-sub{font-size:11px;color:var(--text2);font-family:var(--mono);}
+  .topbar-right{display:flex;align-items:center;gap:10px;}
+  .time-badge{font-family:var(--mono);font-size:12px;color:var(--text2);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:5px 10px;}
+  .key-btn{display:flex;align-items:center;gap:6px;background:var(--surface2);color:var(--text2);border:1px solid var(--border2);border-radius:8px;padding:7px 14px;font-size:12px;font-family:var(--sans);cursor:pointer;transition:.15s;}
+  .key-btn:hover{color:var(--text);border-color:var(--accent);}
+  .run-btn{display:flex;align-items:center;gap:7px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:500;font-family:var(--sans);cursor:pointer;transition:.15s;}
+  .run-btn:hover{opacity:.88;}
+  .run-btn:active{transform:scale(.97);}
+  .run-btn:disabled{opacity:.4;cursor:not-allowed;}
 
-  .main { padding: 24px 28px; }
+  /* main */
+  .main{padding:24px 28px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:14px;}
+  .stat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+  .stat-icon.v{background:var(--vaccine-dim)}.stat-icon.g{background:var(--goods-dim)}.stat-icon.m{background:var(--media-dim)}
+  .stat-label{font-size:11px;color:var(--text2);font-family:var(--mono);letter-spacing:.04em;margin-bottom:2px;}
+  .stat-val{font-size:20px;font-weight:700;font-family:var(--mono);}
+  .stat-val.v{color:var(--vaccine)}.stat-val.g{color:var(--goods)}.stat-val.m{color:var(--media)}
 
-  .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 24px; }
-  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 14px; }
-  .stat-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-  .stat-icon.v { background: var(--vaccine-dim); }
-  .stat-icon.g { background: var(--goods-dim); }
-  .stat-icon.m { background: var(--media-dim); }
-  .stat-label { font-size: 11px; color: var(--text2); font-family: var(--mono); letter-spacing:.04em; margin-bottom: 2px; }
-  .stat-val { font-size: 20px; font-weight: 700; font-family: var(--mono); }
-  .stat-val.v { color: var(--vaccine); }
-  .stat-val.g { color: var(--goods); }
-  .stat-val.m { color: var(--media); }
+  .sector-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+  .sector-dot{width:10px;height:10px;border-radius:50%;}
+  .sector-title{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;}
+  .sector-count{font-size:11px;font-family:var(--mono);color:var(--text2);margin-left:auto;}
+  .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;}
+  .news-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;transition:.15s;}
+  .news-card:hover{border-color:var(--border2);}
+  .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+  .card-tag{font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0;font-family:var(--mono);}
+  .tag-comp{background:rgba(244,114,182,.12);color:var(--tag-comp);}
+  .tag-trend{background:rgba(91,156,246,.12);color:var(--tag-trend);}
+  .tag-timely{background:rgba(52,211,153,.12);color:var(--tag-timely);}
+  .tag-feature{background:rgba(251,146,60,.12);color:var(--tag-feature);}
+  .card-title{font-size:13px;font-weight:500;line-height:1.5;}
+  .card-topline{font-size:12px;color:var(--text2);line-height:1.65;}
+  .card-highlight{background:rgba(251,191,36,.06);border-left:2px solid #fbbf24;border-radius:0 6px 6px 0;padding:7px 10px;font-size:11px;color:#fbbf24;line-height:1.55;}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;border-top:1px solid var(--border);}
+  .card-meta{font-size:10px;color:var(--text3);font-family:var(--mono);}
+  .card-link{font-size:10px;color:var(--accent);text-decoration:none;}
+  .card-link:hover{text-decoration:underline;}
 
-  .sector-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-  .sector-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .sector-title { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .sector-count { font-size: 11px; font-family: var(--mono); color: var(--text2); margin-left: auto; }
+  /* states */
+  .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;gap:14px;color:var(--text2);}
+  .empty-icon{font-size:42px;opacity:.25;}
+  .empty-text{font-size:15px;font-weight:500;}
+  .empty-sub{font-size:12px;color:var(--text3);text-align:center;line-height:1.8;}
+  .spinner{width:32px;height:32px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loading-state{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:340px;gap:16px;}
+  .loading-msg{font-size:13px;color:var(--text2);font-family:var(--mono);}
+  .loading-steps{display:flex;flex-direction:column;gap:7px;}
+  .loading-step{font-size:11px;color:var(--text3);font-family:var(--mono);}
+  .loading-step.done{color:var(--tag-timely);}
+  .loading-step.active{color:var(--text2);}
+  .error-box{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px 18px;font-size:12px;color:#f87171;margin-bottom:20px;line-height:1.6;}
+  .debug-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-size:10px;color:var(--text3);font-family:var(--mono);margin-top:8px;white-space:pre-wrap;word-break:break-all;max-height:140px;overflow-y:auto;}
 
-  .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 28px; }
-  .news-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; transition: border-color .15s; }
-  .news-card:hover { border-color: var(--border2); }
-  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
-  .card-tag { font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; font-family: var(--mono); }
-  .tag-comp    { background: rgba(244,114,182,.12); color: var(--tag-comp); }
-  .tag-trend   { background: rgba(91,156,246,.12);  color: var(--tag-trend); }
-  .tag-timely  { background: rgba(52,211,153,.12);  color: var(--tag-timely); }
-  .tag-feature { background: rgba(251,146,60,.12);  color: var(--tag-feature); }
-  .card-title { font-size: 13px; font-weight: 500; line-height: 1.5; }
-  .card-topline { font-size: 12px; color: var(--text2); line-height: 1.65; }
-  .card-highlight { background: rgba(251,191,36,.06); border-left: 2px solid #fbbf24; border-radius: 0 6px 6px 0; padding: 7px 10px; font-size: 11px; color: #fbbf24; line-height: 1.55; }
-  .card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 6px; border-top: 1px solid var(--border); }
-  .card-meta { font-size: 10px; color: var(--text3); font-family: var(--mono); }
-  .card-link { font-size: 10px; color: var(--accent); text-decoration: none; }
-  .card-link:hover { text-decoration: underline; }
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+  .legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);}
+  .legend-dot{width:7px;height:7px;border-radius:50%;}
+  .last-updated{font-size:11px;color:var(--text3);font-family:var(--mono);margin-bottom:20px;}
 
-  .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 340px; gap: 14px; color: var(--text2); }
-  .empty-icon { font-size: 42px; opacity: .25; }
-  .empty-text { font-size: 15px; font-weight: 500; }
-  .empty-sub { font-size: 12px; color: var(--text3); text-align: center; line-height: 1.7; }
-
-  .spinner { width: 32px; height: 32px; border: 2px solid var(--border2); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-state { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 340px; gap: 16px; }
-  .loading-msg { font-size: 13px; color: var(--text2); font-family: var(--mono); }
-  .loading-steps { display: flex; flex-direction: column; gap: 7px; }
-  .loading-step { font-size: 11px; color: var(--text3); font-family: var(--mono); }
-  .loading-step.done   { color: var(--tag-timely); }
-  .loading-step.active { color: var(--text2); }
-
-  .error-box { background: rgba(239,68,68,.08); border: 1px solid rgba(239,68,68,.2); border-radius: 10px; padding: 14px 18px; font-size: 12px; color: #f87171; margin-bottom: 20px; line-height: 1.6; }
-  .debug-box { background: rgba(255,255,255,.03); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 10px; color: var(--text3); font-family: var(--mono); margin-top: 8px; white-space: pre-wrap; word-break: break-all; max-height: 160px; overflow-y: auto; }
-
-  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
-  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); }
-  .legend-dot { width: 7px; height: 7px; border-radius: 50%; }
-  .last-updated { font-size: 11px; color: var(--text3); font-family: var(--mono); margin-bottom: 20px; }
+  /* API Key Modal */
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:999;backdrop-filter:blur(4px);}
+  .modal{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:28px 32px;width:460px;max-width:90vw;}
+  .modal-title{font-size:16px;font-weight:700;margin-bottom:6px;}
+  .modal-desc{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:20px;}
+  .modal-desc a{color:var(--accent);}
+  .modal-input-wrap{position:relative;margin-bottom:14px;}
+  .modal-input{width:100%;background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:10px 42px 10px 14px;font-size:13px;font-family:var(--mono);color:var(--text);outline:none;transition:.15s;}
+  .modal-input:focus{border-color:var(--accent);}
+  .toggle-vis{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text2);cursor:pointer;font-size:16px;padding:0;}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;}
+  .modal-cancel{background:none;border:1px solid var(--border2);border-radius:8px;padding:8px 18px;font-size:13px;color:var(--text2);font-family:var(--sans);cursor:pointer;transition:.15s;}
+  .modal-cancel:hover{color:var(--text);}
+  .modal-save{background:var(--accent);border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:500;color:#fff;font-family:var(--sans);cursor:pointer;transition:.15s;}
+  .modal-save:hover{opacity:.88;}
+  .modal-hint{font-size:11px;color:var(--text3);margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+  .key-status{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-family:var(--mono);}
+  .key-status.set{color:var(--tag-timely);}
+  .key-status.unset{color:var(--tag-comp);}
 </style>
 </head>
 <body>
 <div class="app">
+
+  <!-- API Key Modal -->
+  <div class="modal-overlay" id="modalOverlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-title">🔑 Anthropic API 키 설정</div>
+      <div class="modal-desc">
+        API 키는 이 브라우저에만 저장되며 외부로 전송되지 않습니다.<br>
+        키가 없다면 <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a> 에서 발급받으세요.
+      </div>
+      <div class="modal-input-wrap">
+        <input class="modal-input" id="apiKeyInput" type="password" placeholder="sk-ant-api03-..." autocomplete="off" />
+        <button class="toggle-vis" onclick="toggleVis()" title="보기/숨기기">👁</button>
+      </div>
+      <div class="modal-hint">🔒 localStorage에 저장 — 브라우저를 닫아도 유지됩니다</div>
+      <div class="modal-actions">
+        <button class="modal-cancel" onclick="closeModal()">취소</button>
+        <button class="modal-save" onclick="saveKey()">저장하고 닫기</button>
+      </div>
+    </div>
+  </div>
+
   <header class="topbar">
     <div class="logo">
       <div class="logo-dot"></div>
@@ -122,8 +142,11 @@
     </div>
     <div class="topbar-right">
       <div class="time-badge" id="clock">--:--:--</div>
+      <button class="key-btn" onclick="openModal()">
+        🔑 <span id="keyStatus">API 키 설정</span>
+      </button>
       <button class="run-btn" id="runBtn" onclick="runBriefing()">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="8" cy="8" r="6"/><polyline points="6,5 11,8 6,11"/>
         </svg>
         브리핑 실행
@@ -133,199 +156,177 @@
 
   <main class="main">
     <div class="stat-row">
-      <div class="stat-card">
-        <div class="stat-icon v">💉</div>
-        <div><div class="stat-label">VACCINE</div><div class="stat-val v" id="cnt-v">—</div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon g">🧴</div>
-        <div><div class="stat-label">GOODS</div><div class="stat-val g" id="cnt-g">—</div></div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon m">📺</div>
-        <div><div class="stat-label">MEDIA</div><div class="stat-val m" id="cnt-m">—</div></div>
-      </div>
+      <div class="stat-card"><div class="stat-icon v">💉</div><div><div class="stat-label">VACCINE</div><div class="stat-val v" id="cnt-v">—</div></div></div>
+      <div class="stat-card"><div class="stat-icon g">🧴</div><div><div class="stat-label">GOODS</div><div class="stat-val g" id="cnt-g">—</div></div></div>
+      <div class="stat-card"><div class="stat-icon m">📺</div><div><div class="stat-label">MEDIA</div><div class="stat-val m" id="cnt-m">—</div></div></div>
     </div>
-
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--tag-comp)"></div>경쟁사조사</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--tag-trend)"></div>빅트렌드</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--tag-timely)"></div>시의성</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--tag-feature)"></div>기획기사</div>
     </div>
-
-    <div id="lastUpdated" class="last-updated" style="display:none"></div>
-    <div id="errorBox" style="display:none"></div>
+    <div id="lastUpdated" class="last-updated" style="display:none;"></div>
+    <div id="errorWrap" style="display:none;"></div>
     <div id="content"></div>
   </main>
 </div>
 
 <script>
-// ── 시계 ─────────────────────────────────────────────
-setInterval(() => {
-  document.getElementById('clock').textContent = new Date().toLocaleTimeString('ko-KR');
-}, 1000);
+// ── 시계 ──────────────────────────────────────────────
+setInterval(()=>{ document.getElementById('clock').textContent = new Date().toLocaleTimeString('ko-KR'); },1000);
 document.getElementById('clock').textContent = new Date().toLocaleTimeString('ko-KR');
 
-showEmpty();
+// ── API 키 관리 ────────────────────────────────────────
+function getKey(){ return localStorage.getItem('anthropic_api_key')||''; }
+function updateKeyStatus(){
+  const k = getKey();
+  const el = document.getElementById('keyStatus');
+  el.textContent = k ? '🟢 키 설정됨' : '🔴 API 키 설정';
+}
+function openModal(){
+  document.getElementById('apiKeyInput').value = getKey();
+  document.getElementById('modalOverlay').style.display = 'flex';
+}
+function closeModal(){ document.getElementById('modalOverlay').style.display = 'none'; }
+function saveKey(){
+  const v = document.getElementById('apiKeyInput').value.trim();
+  if(v) localStorage.setItem('anthropic_api_key', v);
+  else  localStorage.removeItem('anthropic_api_key');
+  updateKeyStatus();
+  closeModal();
+}
+function toggleVis(){
+  const inp = document.getElementById('apiKeyInput');
+  inp.type = inp.type==='password' ? 'text' : 'password';
+}
+document.getElementById('modalOverlay').addEventListener('click', e=>{
+  if(e.target===document.getElementById('modalOverlay')) closeModal();
+});
+document.getElementById('apiKeyInput').addEventListener('keydown', e=>{
+  if(e.key==='Enter') saveKey();
+  if(e.key==='Escape') closeModal();
+});
+updateKeyStatus();
 
-// ── 빈 화면 ───────────────────────────────────────────
-function showEmpty() {
+// ── 초기화 ────────────────────────────────────────────
+showEmpty();
+function showEmpty(){
   document.getElementById('content').innerHTML = `
     <div class="empty-state">
       <div class="empty-icon">📰</div>
       <div class="empty-text">브리핑 준비 완료</div>
       <div class="empty-sub">
-        상단 <strong style="color:var(--accent)">"브리핑 실행"</strong> 버튼을 누르면<br>
-        Claude AI가 백신·생필품·미디어 시장 최신 뉴스를 분석합니다.
+        ① 우측 상단 <strong style="color:var(--accent)">🔑 API 키 설정</strong> 클릭<br>
+        ② Anthropic API 키 입력 후 저장<br>
+        ③ <strong style="color:var(--accent)">브리핑 실행</strong> 버튼 클릭
       </div>
     </div>`;
 }
 
-// ── JSON 추출 (핵심 보완 로직) ─────────────────────────
-function extractJSON(raw) {
-  // 1) 코드블록 제거
-  let s = raw.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim();
-
-  // 2) 첫 { 부터 마지막 } 까지 추출
-  const start = s.indexOf('{');
-  const end   = s.lastIndexOf('}');
-  if (start === -1 || end === -1) throw new Error('JSON 객체를 찾을 수 없습니다.');
-  s = s.slice(start, end + 1);
-
-  // 3) 제어문자 제거 (줄바꿈·탭 제외)
-  s = s.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
-
-  // 4) 문자열 내부의 이스케이프되지 않은 큰따옴표 처리
-  //    — JSON 파싱 시도 후 실패하면 섹션별 복구 시도
-  try {
-    return JSON.parse(s);
-  } catch(e1) {
-    // 5) 섹션별 추출 시도
-    const result = {};
-    ['vaccine','goods','media'].forEach(key => {
-      const re = new RegExp('"' + key + '"\\s*:\\s*(\\[.*?\\])', 's');
-      const m  = s.match(re);
-      if (m) {
-        try { result[key] = JSON.parse(m[1]); }
-        catch { result[key] = []; }
-      } else {
-        result[key] = [];
-      }
+// ── JSON 추출 ─────────────────────────────────────────
+function extractJSON(raw){
+  let s = raw.replace(/```json\s*/gi,'').replace(/```\s*/g,'').trim();
+  const start=s.indexOf('{'), end=s.lastIndexOf('}');
+  if(start===-1||end===-1) throw new Error('JSON 객체를 찾을 수 없습니다.');
+  s = s.slice(start,end+1);
+  s = s.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g,'');
+  try{ return JSON.parse(s); }
+  catch(e1){
+    const result={};
+    ['vaccine','goods','media'].forEach(key=>{
+      const re=new RegExp('"'+key+'"\\s*:\\s*(\\[.*?\\])','s');
+      const m=s.match(re);
+      if(m){ try{ result[key]=JSON.parse(m[1]); }catch{ result[key]=[]; } }
+      else result[key]=[];
     });
-    if (result.vaccine || result.goods || result.media) return result;
-    throw new Error('JSON 파싱 실패: ' + e1.message);
+    if(result.vaccine||result.goods||result.media) return result;
+    throw new Error('파싱 실패: '+e1.message);
   }
 }
 
-// ── 태그 클래스 ───────────────────────────────────────
-function tagClass(tag) {
-  if (!tag) return 'tag-trend';
-  if (tag.includes('경쟁')) return 'tag-comp';
-  if (tag.includes('트렌드') || tag.includes('빅')) return 'tag-trend';
-  if (tag.includes('시의')) return 'tag-timely';
-  if (tag.includes('기획')) return 'tag-feature';
+// ── 유틸 ──────────────────────────────────────────────
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function tagCls(t){
+  if(!t) return 'tag-trend';
+  if(t.includes('경쟁')) return 'tag-comp';
+  if(t.includes('트렌드')||t.includes('빅')) return 'tag-trend';
+  if(t.includes('시의')) return 'tag-timely';
+  if(t.includes('기획')) return 'tag-feature';
   return 'tag-trend';
 }
 
-// ── 섹터 렌더 ─────────────────────────────────────────
-function renderSector(emoji, title, dotColor, items) {
-  if (!items || items.length === 0) return '';
-  const cards = items.map(item => `
+// ── 렌더 ──────────────────────────────────────────────
+function renderSector(emoji,title,dot,items){
+  if(!items||!items.length) return '';
+  const cards = items.map(it=>`
     <div class="news-card">
       <div class="card-head">
-        <div class="card-title">${escHtml(item.title || '')}</div>
-        <span class="card-tag ${tagClass(item.category)}">${escHtml(item.category || '')}</span>
+        <div class="card-title">${esc(it.title)}</div>
+        <span class="card-tag ${tagCls(it.category)}">${esc(it.category)}</span>
       </div>
-      <div class="card-topline">${escHtml(item.topline || '')}</div>
-      ${item.highlight ? `<div class="card-highlight">${escHtml(item.highlight)}</div>` : ''}
+      <div class="card-topline">${esc(it.topline)}</div>
+      ${it.highlight?`<div class="card-highlight">${esc(it.highlight)}</div>`:''}
       <div class="card-footer">
-        <span class="card-meta">${escHtml(item.source || '')} ${escHtml(item.date || '')}</span>
-        ${item.url ? `<a class="card-link" href="${escAttr(item.url)}" target="_blank">↗ 기사 보기</a>` : ''}
+        <span class="card-meta">${esc(it.source)} ${esc(it.date)}</span>
+        ${it.url?`<a class="card-link" href="${esc(it.url)}" target="_blank">↗ 기사 보기</a>`:''}
       </div>
     </div>`).join('');
   return `
     <div class="sector-header">
-      <div class="sector-dot" style="background:${dotColor}"></div>
+      <div class="sector-dot" style="background:${dot}"></div>
       <div class="sector-title">${emoji} ${title}</div>
       <div class="sector-count">${items.length} articles</div>
     </div>
     <div class="news-grid">${cards}</div>`;
 }
 
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
-}
-function escAttr(str) { return String(str).replace(/"/g,'&quot;'); }
-
-// ── 대시보드 렌더 ─────────────────────────────────────
-function renderDashboard(data) {
-  let html = '';
-  html += renderSector('💉','백신시장',  'var(--vaccine)', data.vaccine);
-  html += renderSector('🧴','생필품시장','var(--goods)',   data.goods);
-  html += renderSector('📺','미디어시장','var(--media)',   data.media);
-  document.getElementById('content').innerHTML = html;
-  document.getElementById('cnt-v').textContent = (data.vaccine||[]).length + '건';
-  document.getElementById('cnt-g').textContent = (data.goods||[]).length   + '건';
-  document.getElementById('cnt-m').textContent = (data.media||[]).length   + '건';
-  const lu = document.getElementById('lastUpdated');
-  lu.style.display = 'block';
-  lu.textContent = '마지막 업데이트: ' + new Date().toLocaleString('ko-KR');
+function renderDashboard(data){
+  document.getElementById('content').innerHTML =
+    renderSector('💉','백신시장','var(--vaccine)',data.vaccine)+
+    renderSector('🧴','생필품시장','var(--goods)',data.goods)+
+    renderSector('📺','미디어시장','var(--media)',data.media);
+  document.getElementById('cnt-v').textContent=(data.vaccine||[]).length+'건';
+  document.getElementById('cnt-g').textContent=(data.goods||[]).length+'건';
+  document.getElementById('cnt-m').textContent=(data.media||[]).length+'건';
+  const lu=document.getElementById('lastUpdated');
+  lu.style.display='block';
+  lu.textContent='마지막 업데이트: '+new Date().toLocaleString('ko-KR');
 }
 
-// ── 로딩 ─────────────────────────────────────────────
-const STEPS = [
-  '백신시장 최신 동향 분석 중...',
-  '생필품시장 경쟁사 정보 수집 중...',
-  '미디어시장 트렌드 파악 중...',
-  'AI 탑라인 요약 생성 중...',
-];
-function showLoading() {
-  document.getElementById('content').innerHTML = `
+// ── 로딩 ──────────────────────────────────────────────
+const STEPS=['백신시장 최신 동향 분석 중...','생필품시장 경쟁사 정보 수집 중...','미디어시장 트렌드 파악 중...','AI 탑라인 요약 생성 중...'];
+function showLoading(){
+  document.getElementById('content').innerHTML=`
     <div class="loading-state">
       <div class="spinner"></div>
       <div class="loading-msg">Claude AI가 시장 뉴스를 분석하고 있습니다</div>
-      <div class="loading-steps">
-        ${STEPS.map((s,i) => `<div class="loading-step" id="step${i}">○  ${s}</div>`).join('')}
-      </div>
+      <div class="loading-steps">${STEPS.map((s,i)=>`<div class="loading-step" id="step${i}">○  ${s}</div>`).join('')}</div>
     </div>`;
-  let i = 0;
-  return setInterval(() => {
-    if (i > 0) {
-      const p = document.getElementById('step'+(i-1));
-      if (p) { p.classList.remove('active'); p.classList.add('done'); p.textContent = '✓  '+STEPS[i-1]; }
-    }
-    const el = document.getElementById('step'+i);
-    if (el) { el.classList.add('active'); el.textContent = '●  '+STEPS[i]; }
+  let i=0;
+  return setInterval(()=>{
+    if(i>0){const p=document.getElementById('step'+(i-1));if(p){p.classList.remove('active');p.classList.add('done');p.textContent='✓  '+STEPS[i-1];}}
+    const el=document.getElementById('step'+i);
+    if(el){el.classList.add('active');el.textContent='●  '+STEPS[i];}
     i++;
-  }, 900);
-}
-
-// ── 에러 표시 ─────────────────────────────────────────
-function showError(msg, rawText) {
-  const box = document.getElementById('errorBox');
-  box.style.display = 'block';
-  box.innerHTML = `
-    <div class="error-box">
-      ⚠️ ${escHtml(msg)}
-      ${rawText ? `<div class="debug-box">${escHtml(rawText.slice(0,600))}...</div>` : ''}
-    </div>`;
+  },900);
 }
 
 // ── 메인 실행 ─────────────────────────────────────────
-async function runBriefing() {
-  const btn = document.getElementById('runBtn');
-  btn.disabled = true;
-  document.getElementById('errorBox').style.display = 'none';
-  document.getElementById('lastUpdated').style.display = 'none';
-  ['cnt-v','cnt-g','cnt-m'].forEach(id => document.getElementById(id).textContent = '—');
+async function runBriefing(){
+  const apiKey = getKey();
+  if(!apiKey){ openModal(); return; }
 
-  const timer = showLoading();
-  const today = new Date().toLocaleDateString('ko-KR', {year:'numeric',month:'long',day:'numeric'});
+  const btn=document.getElementById('runBtn');
+  btn.disabled=true;
+  document.getElementById('errorWrap').style.display='none';
+  document.getElementById('lastUpdated').style.display='none';
+  ['cnt-v','cnt-g','cnt-m'].forEach(id=>document.getElementById(id).textContent='—');
 
-  const prompt = `당신은 한국 시장 전문 미디어 애널리스트입니다.
+  const timer=showLoading();
+  const today=new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'});
+
+  const prompt=`당신은 한국 시장 전문 미디어 애널리스트입니다.
 오늘(${today}) 기준으로 3개 시장의 최신 뉴스·트렌드를 분석해주세요.
 
 분석 대상:
@@ -336,43 +337,38 @@ async function runBriefing() {
 각 시장마다 2~3건씩, 아래 카테고리 중 하나로 분류:
 경쟁사조사 / 빅트렌드 / 시의성 / 기획기사
 
-중요: 반드시 순수 JSON만 출력하세요. 설명 문구, 마크다운, 코드블록 불필요.
-텍스트 값 안에 큰따옴표(")가 있으면 반드시 백슬래시로 이스케이프(\")하세요.
+규칙:
+- 순수 JSON만 출력. 설명문·마크다운·코드블록 절대 금지.
+- 문자열 안 큰따옴표는 반드시 \" 로 이스케이프.
+- url 필드는 실제 접근 가능한 한국 언론사 URL.
 
-출력 형식:
-{"vaccine":[{"title":"제목","category":"카테고리","topline":"요약 2문장","highlight":"핵심수치나 키포인트","source":"매체명","date":"연도.월","url":"https://매체URL"}],"goods":[...],"media":[...]}`;
+형식:
+{"vaccine":[{"title":"제목(30자 이내)","category":"카테고리","topline":"요약 2문장","highlight":"핵심수치 또는 키포인트","source":"매체명","date":"연도.월","url":"https://..."}],"goods":[...],"media":[...]}`;
 
-  let rawText = '';
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 3000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+  let rawText='';
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:3000,messages:[{role:'user',content:prompt}]})
     });
-
     clearInterval(timer);
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err.error?.message || 'HTTP ' + res.status);
+    if(!res.ok){
+      const err=await res.json().catch(()=>({}));
+      throw new Error(err.error?.message||'HTTP '+res.status);
     }
-
-    const apiData = await res.json();
-    rawText = apiData.content?.find(b => b.type === 'text')?.text || '';
-
-    const parsed = extractJSON(rawText);
+    const apiData=await res.json();
+    rawText=apiData.content?.find(b=>b.type==='text')?.text||'';
+    const parsed=extractJSON(rawText);
     renderDashboard(parsed);
-
-  } catch (e) {
+  }catch(e){
     clearInterval(timer);
-    showError(e.message, rawText);
+    const wrap=document.getElementById('errorWrap');
+    wrap.style.display='block';
+    wrap.innerHTML=`<div class="error-box">⚠️ ${esc(e.message)}${rawText?`<div class="debug-box">${esc(rawText.slice(0,500))}</div>`:''}</div>`;
     showEmpty();
-  } finally {
-    btn.disabled = false;
+  }finally{
+    btn.disabled=false;
   }
 }
 </script>
